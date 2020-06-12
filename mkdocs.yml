@@ -1,6 +1,8 @@
 site_name: raspik8s
 nav:
   - Home: index.md
+  - Dependencies: deps.md
+  - Contribute: contribute.md
   - About: about.md
 theme:
   name: material

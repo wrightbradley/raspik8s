@@ -2,21 +2,8 @@
 
 This site holds the documentation necessary to configure and deploy Kubernetes on Raspberry Pi boards.
 
-## Contributing
+## Quick Start
 
-### Documentation
-
-#### Commands for contributing to documentation
-
-* `make` - Sets up python3 virtual environment
-* `source .venv/bin/active` - Activates python3 virtual environment
-* `mkdocs build` - Build the documentation site.
-* `mkdocs help` - Print this help message.
-* `mkdocs gh-deploy` - Deploy documentation updates to gh-deploy branch
-
-#### Documentation layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+1. Check out Dependencies Tab
+2. Check out scripts directory
+3. CHeck out tools directory
