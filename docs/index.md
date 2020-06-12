@@ -1,15 +1,20 @@
-# Welcome to MkDocs
+# Welcome to raspik8s
 
-For full documentation visit [mkdocs.org](https://mkdocs.org).
+This site holds the documentation necessary to configure and deploy Kubernetes on Raspberry Pi boards.
 
-## Commands
+## Contributing
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
+### Documentation
+
+#### Commands for contributing to documentation
+
+* make` - Sets up python3 virtual environment
+* `source .venv/bin/active - Activates python3 virtual environment
 * `mkdocs build` - Build the documentation site.
 * `mkdocs help` - Print this help message.
+* `mkdocs gh-deploy` - Deploy documentation updates to gh-deploy branch
 
-## Project layout
+#### Documentation layout
 
     mkdocs.yml    # The configuration file.
     docs/
