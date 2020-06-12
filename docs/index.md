@@ -1,5 +1,7 @@
 # Welcome to raspik8s
 
+[GitHub Repo](https://github.com/the-wright-engineer/raspik8s)
+
 This site holds the documentation necessary to configure and deploy Kubernetes on Raspberry Pi boards.
 
 ## Quick Start
