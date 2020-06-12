@@ -8,8 +8,8 @@ This site holds the documentation necessary to configure and deploy Kubernetes o
 
 #### Commands for contributing to documentation
 
-* make` - Sets up python3 virtual environment
-* `source .venv/bin/active - Activates python3 virtual environment
+* `make` - Sets up python3 virtual environment
+* `source .venv/bin/active` - Activates python3 virtual environment
 * `mkdocs build` - Build the documentation site.
 * `mkdocs help` - Print this help message.
 * `mkdocs gh-deploy` - Deploy documentation updates to gh-deploy branch
