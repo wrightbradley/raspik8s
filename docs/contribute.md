@@ -11,11 +11,10 @@ To contribue to the documentation, all you need to do is update either mkdocs.ym
         index.md  # The documentation homepage.
         ...       # Other markdown pages, images and other files.
 
-~~### Commands for contributing to documentation
+~~### Commands for contributing to documentation~~
 
-* `make` - Sets up python3 virtual environment
-* `source .venv/bin/active` - Activates python3 virtual environment
-* `mkdocs build` - Build the documentation site.
-* `mkdocs help` - Print this help message.
-* `mkdocs gh-deploy` - Deploy documentation updates to gh-deploy branch
-~~
+~~* `make` - Sets up python3 virtual environment~~
+~~* `source .venv/bin/active` - Activates python3 virtual environment~~
+~~* `mkdocs build` - Build the documentation site.~~
+~~* `mkdocs help` - Print this help message.~~
+~~* `mkdocs gh-deploy` - Deploy documentation updates to gh-deploy branch~~
