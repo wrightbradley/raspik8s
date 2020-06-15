@@ -1,9 +1,0 @@
-[Unit]
-After=network-online.target firewalld.service
-Before=docker.service
-
-[Service]
-ExecStart=/usr/local/bin/mynet-shim.sh
-
-[Install]
-WantedBy=default.target
