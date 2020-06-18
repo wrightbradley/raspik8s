@@ -29,13 +29,13 @@ spec:
             - name: PROVISIONER_NAME
               value: nfs-storage
             - name: NFS_SERVER
-              value: 192.168.1.1
+              value: 192.168.1.200
             - name: NFS_PATH
-              value: /mnt/path
+              value: /mnt/k8s
       nodeSelector:
         beta.kubernetes.io/arch: amd64
       volumes:
         - name: nfs-client-root
           nfs:
-            server: 192.168.1.1
-            path: /mnt/path
+            server: 192.168.1.200
+            path: /mnt/k8s

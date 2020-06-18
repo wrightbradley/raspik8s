@@ -1,0 +1,24 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: pihole
+  labels:
+    app: pihole
+    release: pihole
+spec:
+  rules:
+    - host: "pi-hole.local"
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: pihole-tcp
+              servicePort: http
+    - host: "pi.hole"
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: pihole-tcp
+              servicePort: http

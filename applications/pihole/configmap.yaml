@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pihole-custom-dnsmasq
+  labels:
+    app: pihole
+data:
+  02-custom.conf: |
+    addn-hosts=/etc/addn-hosts
+    address=/grafana.local/192.168.0.150
+    address=/alertmanager.local/192.168.0.150
+    address=/prometheus.local/192.168.0.150
+  addn-hosts: |
