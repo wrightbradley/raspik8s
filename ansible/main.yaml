@@ -1,0 +1,17 @@
+---
+- hosts: all
+  serial: "50%"
+  roles:
+    - { role: common, tags: [ "standup", "common" ] }
+
+- hosts: k3s-controlplane
+  serial: "50%"
+  strategy: free
+  roles:
+    - { role: controlplane, tags: [ "standup", "controlplane" ] }
+
+- hosts: k3s-nodes
+  serial: "50%"
+  strategy: free
+  roles:
+    - { role: nodes, tags: [ "standup", "nodes" ] }

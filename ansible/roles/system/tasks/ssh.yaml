@@ -1,0 +1,27 @@
+- name: Configure SSH Server
+  template:
+    src: etc/ssh/sshd_config.j2
+    dest: /etc/ssh/sshd_config
+    backup: yes
+    owner: root
+    group: root
+    mode: '0644'
+  notify:
+    - restart_sshd
+
+- name: Add SSH Public Keys
+  authorized_key:
+    user: "{{ item.name }}"
+    comment: "{{ item.authkey_comment | default(omit) }}"
+    exclusive: "{{ item.authkey_exclusive | default(omit) }}"
+    key:
+    manage_dir:
+    state:
+  loop: "{{ users }}"
+  tags:
+    - create-users
+    - update-sshkeys
+  loop_control:
+    label: "{{ item.name }}"
+  ignore_errors: "{{ ansible_check_mode }}"
+

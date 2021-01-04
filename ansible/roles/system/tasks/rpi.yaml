@@ -1,0 +1,28 @@
+- name: gpu mem check
+  shell: "cat /boot/config.txt | grep gpu_mem"
+  check_mode: no
+  ignore_errors: true
+  register: gpu_mem_check
+
+- name: reduce gpu memory
+  lineinfile:
+    path: /boot/config.txt
+    line: gpu_mem=16
+  register: gpu_mem
+  when: gpu_mem_check.stdout == ""
+
+- name: gpu mem check
+  shell: "cat /boot/cmdline.txt | grep cgroup"
+  check_mode: no
+  ignore_errors: true
+  register: cmdline_check
+
+- name: Enabling cgroup options at boot
+  copy:
+    src: cmdline.txt
+    dest: /boot/cmdline.txt
+    owner: root
+    group: root
+    mode: 0755
+  register: cmdline
+  when: cmdline_check.stdout == ""

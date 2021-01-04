@@ -1,0 +1,9 @@
+[controlplane]
+k3s-control ansible_user=ubuntu
+
+[nodes]
+k3s-node01 ansible_user=ubuntu
+k3s-node02 ansible_user=ubuntu
+k3s-node03 ansible_user=ubuntu
+k3s-node04 ansible_user=ubuntu
+k3s-node05 ansible_user=ubuntu

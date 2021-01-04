@@ -1,0 +1,4 @@
+- name: Create local storage directory
+- name: Configure k3s installation options
+- name: Install k3s
+
