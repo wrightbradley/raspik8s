@@ -15,4 +15,4 @@
 - name: reboot (as needed)
   reboot:
     reboot_timeout: 3600
-  when: cmdline or timezone or hostname or gpu_mem is changed
+  when: timezone or hostname or gpu_mem is changed

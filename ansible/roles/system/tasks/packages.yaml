@@ -6,7 +6,7 @@
     cache_valid_time: 86400
 
 - name: python-apt dependency
-  shell: apt-get install -y python-apt
+  shell: apt-get install -y python3-apt
   args:
     warn: no
 

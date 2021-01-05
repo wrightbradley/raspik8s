@@ -2,3 +2,5 @@ site/
 mkdocs/
 .venv
 monitoring/
+ansible/.cache
+ansible/.cp
