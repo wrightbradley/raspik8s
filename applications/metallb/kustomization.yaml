@@ -2,7 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-- github.com/danderson/metallb//manifests?ref=v0.9.3
+- github.com/danderson/metallb//manifests?ref=v0.9.5
 - configmap.yaml
 
 namespace: metallb-system
