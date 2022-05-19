@@ -1,3 +1,4 @@
+---
 - name: python-apt dependency
   command: apt-get install -y python3-apt
   args:

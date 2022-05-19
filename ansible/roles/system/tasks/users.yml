@@ -1,3 +1,4 @@
+---
 - name: Configure Groups
   group:
     name: "{{ item.name }}"

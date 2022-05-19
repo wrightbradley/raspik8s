@@ -4,21 +4,27 @@
   gather_facts: yes
   become: yes
   roles:
-    - { role: prereq, tags: ["prereq"] }
-    - { role: system, tags: ["system"] }
-    - { role: raspberrypi, tags: ["raspberrypi"] }
-    - { role: download, tags: ["download"] }
+    - role: prereq
+      tags: ["prereq"]
+    - role: system
+      tags: ["system"]
+    - role: raspberrypi
+      tags: ["raspberrypi"]
+    - role: download
+      tags: ["download"]
 
 - hosts: controlplane
   serial: "50%"
   strategy: free
   become: yes
   roles:
-    - { role: k3s, tags: ["controlplane"] }
+    - role: k3s
+      tags: ["controlplane"]
 
 - hosts: node
   serial: "50%"
   strategy: free
   become: yes
   roles:
-    - { role: k3s, tags: ["node"] }
+    - role: k3s
+      tags: ["node"]

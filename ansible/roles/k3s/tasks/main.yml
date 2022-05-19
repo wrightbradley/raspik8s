@@ -1,3 +1,4 @@
+---
 - name: Create local storage directory
   file:
     path: /k8s/storage

@@ -1,3 +1,4 @@
+---
 - name: Ensure hostname set
   hostname:
     name: "{{ inventory_hostname }}"

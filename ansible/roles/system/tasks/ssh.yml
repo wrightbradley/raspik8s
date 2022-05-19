@@ -1,3 +1,4 @@
+---
 - name: Configure SSH Server
   template:
     src: etc/ssh/sshd_config.j2

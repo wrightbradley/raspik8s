@@ -1,3 +1,4 @@
+---
 ansible_groups:
   - name: k3s
     gid: 8833
