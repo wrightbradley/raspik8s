@@ -5,7 +5,7 @@
     backup: yes
     owner: root
     group: root
-    mode: '0644'
+    mode: "0644"
   notify:
     - restart_sshd
 
@@ -24,4 +24,3 @@
   loop_control:
     label: "{{ item.name }}"
   ignore_errors: "{{ ansible_check_mode }}"
-

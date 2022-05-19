@@ -4,7 +4,7 @@
     dest: /etc/rancher/k3s/server.yaml
     owner: root
     group: root
-    mode: '0644'
+    mode: "0644"
 
 - name: Install k3s
   shell: curl -sfL https://get.k3s.io | sh -s - --config /etc/rancher/k3s/server.yaml
