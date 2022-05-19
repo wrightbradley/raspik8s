@@ -4,7 +4,7 @@
     state: directory
     owner: root
     group: root
-    mode: '0755'
+    mode: "0755"
 
 - name: Create /etc/rancher/k3s directory
   file:
@@ -12,7 +12,7 @@
     state: directory
     owner: root
     group: root
-    mode: '0755'
+    mode: "0755"
 
 - name: Install K3S Controlplane
   include_tasks: controlplane.yaml
@@ -21,4 +21,3 @@
 - name: Install K3S Nodes
   include_tasks: node.yaml
   when: "'node' in group_names"
-

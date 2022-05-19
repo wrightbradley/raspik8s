@@ -1,4 +1,5 @@
-- name: Configure Groups group:
+- name: Configure Groups
+  group:
     name: "{{ item.name }}"
     gid: "{{ item.gid }}"
     state: "{{ item.state }}"
@@ -54,6 +55,6 @@
   lineinfile:
     path: /etc/sudoers
     state: present
-    regexp: '^%wheel'
-    line: '%k3s ALL=(ALL) NOPASSWD: ALL'
-    validate: 'visudo -cf %s'
+    regexp: "^%wheel"
+    line: "%k3s ALL=(ALL) NOPASSWD: ALL"
+    validate: "visudo -cf %s"
