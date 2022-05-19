@@ -22,6 +22,6 @@ jobs:
 
     # Runs a single command using the runners shell
     - name: Deploy docs
-      uses: the-wright-engineer/mkdocs-deploy-gh-pages@master
+      uses: wrightbradley/mkdocs-deploy-gh-pages@master
       env:
         PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
