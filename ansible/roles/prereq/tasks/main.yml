@@ -1,28 +1,4 @@
-- name: Ensure hostname set
-  hostname:
-    name: "{{ inventory_hostname }}"
-  when: not inventory_hostname is match('(\d{1,3}\.){3}\d{1,3}')
-  register: hostname
-  tags: hostname
-
-- name: Copy over /etc/hosts file
-  template:
-    src: templates/etc/hosts.j2
-    dest: /etc/hosts
-    owner: root
-    group: root
-    mode: 0644
-
-- name: Update Cloud Config Hostname
-  lineinfile:
-    path: /etc/cloud/cloud.cfg
-    line: "preserve_hostname: true"
-
-- name: Set timezone to UTC
-  timezone:
-    name: UTC
-  register: timezone
-
+---
 - name: Set SELinux to disabled state
   selinux:
     state: disabled
@@ -41,6 +17,7 @@
     value: "1"
     state: present
     reload: yes
+  when: ansible_all_ipv6_addresses
 
 - name: Add br_netfilter to /etc/modules-load.d/
   copy:
@@ -68,10 +45,10 @@
 
 - name: Add /usr/local/bin to sudo secure_path
   lineinfile:
-    line: "Defaults    secure_path = /sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin"
+    line: 'Defaults    secure_path = /sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin'
     regexp: "Defaults(\\s)*secure_path(\\s)*="
     state: present
     insertafter: EOF
     path: /etc/sudoers
-    validate: "visudo -cf %s"
+    validate: 'visudo -cf %s'
   when: ansible_distribution in ['CentOS', 'Red Hat Enterprise Linux']

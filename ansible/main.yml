@@ -4,8 +4,10 @@
   gather_facts: yes
   become: yes
   roles:
+    - { role: prereq, tags: ["prereq"] }
     - { role: system, tags: ["system"] }
     - { role: raspberrypi, tags: ["raspberrypi"] }
+    - { role: download, tags: ["download"] }
 
 - hosts: controlplane
   serial: "50%"

@@ -15,9 +15,9 @@
     mode: "0755"
 
 - name: Install K3S Controlplane
-  include_tasks: controlplane.yaml
+  include_tasks: controlplane.yml
   when: "'controlplane' in group_names"
 
 - name: Install K3S Nodes
-  include_tasks: node.yaml
+  include_tasks: node.yml
   when: "'node' in group_names"

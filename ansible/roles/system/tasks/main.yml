@@ -1,7 +1,7 @@
-- import_tasks: packages.yaml
+- import_tasks: packages.yml
   tags: packages
 
-- import_tasks: network.yaml
+- import_tasks: network.yml
   tags: network
 
 - name: Copy over /etc/motd file
