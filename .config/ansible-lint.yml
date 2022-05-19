@@ -1,0 +1,11 @@
+---
+
+skip_list:
+  - '204' # [E204] Lines should be no longer than 120 chars
+  - '701' # [E701] No 'galaxy_info' found
+  - '303' # [E303] Using command rather than module
+  - '106' # [E106] Role name {} does not match ^[a-z][a-z0-9_]+$ pattern
+  - no-changed-when  # Commands should not change things if nothing needs doing.
+
+warn_list:  # or 'skip_list' to silence them completely
+  - experimental  # all rules tagged as experimental

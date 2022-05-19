@@ -3,13 +3,13 @@ ansible_groups:
   - name: k3s
     gid: 8833
     state: present
-    system: no
+    system: false
 
 ansible_users:
   - name: ubuntu
-    authkey_exclusive: yes
+    authkey_exclusive: true
     authkey_state: present
-    create_home: no
+    create_home: false
     expires: -1
     group: k3s
     groups:
@@ -26,23 +26,23 @@ ansible_users:
       - netdev
       - lxd
     password: !
-    remove: no
+    remove: false
     shell: /bin/bash
     state: present
-    system: no
+    system: false
   - name: bwright
     authkey_comment: bwright
-    authkey_exclusive: yes
-    authkey_manage_dir: yes
+    authkey_exclusive: true
+    authkey_manage_dir: true
     authkey_state: present
     comment: "Bradley Wright"
-    create_home: yes
+    create_home: true
     expires: -1
     group: k3s
     groups:
       - sudo
     password: !
-    remove: no
+    remove: false
     shell: /bin/bash
     state: present
-    system: no
+    system: false

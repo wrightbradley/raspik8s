@@ -6,14 +6,9 @@
   tags: network
 
 - name: Copy over /etc/motd file
-  copy:
+  ansible.builtin.copy:
     src: files/etc/motd
     dest: /etc/motd
     owner: root
     group: root
     mode: 0644
-
-- name: reboot (as needed)
-  reboot:
-    reboot_timeout: 3600
-  when: timezone or hostname or gpu_mem is changed

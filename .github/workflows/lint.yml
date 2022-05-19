@@ -28,4 +28,4 @@ jobs:
         run: cd ansible && yamllint -c ../.yamllint .
 
       - name: Run ansible-lint.
-        run: cd ansible && ansible-lint
+        run: cd ansible && ansible-lint -c ../.config/ansible-lint.yml

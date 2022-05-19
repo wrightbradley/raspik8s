@@ -1,6 +1,6 @@
 ---
 - name: Create local storage directory
-  file:
+  ansible.builtin.file:
     path: /k8s/storage
     state: directory
     owner: root
@@ -8,7 +8,7 @@
     mode: "0755"
 
 - name: Create /etc/rancher/k3s directory
-  file:
+  ansible.builtin.file:
     path: /etc/rancher/k3s
     state: directory
     owner: root

@@ -1,0 +1,5 @@
+---
+- name: reboot (as needed)
+  ansible.builtin.reboot:
+    reboot_timeout: 3600
+  when: timezone or hostname or gpu_mem is changed

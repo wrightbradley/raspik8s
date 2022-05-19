@@ -1,8 +1,8 @@
 ---
 - hosts: k3s_cluster
   serial: "50%"
-  gather_facts: yes
-  become: yes
+  gather_facts: true
+  become: true
   roles:
     - role: prereq
       tags: ["prereq"]
@@ -16,7 +16,7 @@
 - hosts: controlplane
   serial: "50%"
   strategy: free
-  become: yes
+  become: true
   roles:
     - role: k3s
       tags: ["controlplane"]
@@ -24,7 +24,7 @@
 - hosts: node
   serial: "50%"
   strategy: free
-  become: yes
+  become: true
   roles:
     - role: k3s
       tags: ["node"]

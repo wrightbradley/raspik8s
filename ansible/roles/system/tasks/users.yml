@@ -1,6 +1,6 @@
 ---
 - name: Configure Groups
-  group:
+  ansible.builtin.group:
     name: "{{ item.name }}"
     gid: "{{ item.gid }}"
     state: "{{ item.state }}"
@@ -14,7 +14,7 @@
     - create-groups
 
 - name: Configure Users
-  user:
+  ansible.builtin.user:
     name: "{{ item.name }}"
     comment: "{{ item.comment | default(omit) }}"
     password: "{{ item.password | default(omit) }}"
@@ -36,7 +36,7 @@
     - create-users
 
 - name: Add SSH Keys for Users
-  authorized_key:
+  ansible.posix.authorized_key:
     user: "{{ item.name }}"
     comment: "{{ item.authkey_comment | default(omit) }}"
     exclusive: "{{ item.authkey_exclusive | default(omit) }}"
@@ -53,7 +53,7 @@
     - update-sshkeys
 
 - name: Set NOPASSWD for Sudoers in K3S Group
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: /etc/sudoers
     state: present
     regexp: "^%wheel"
