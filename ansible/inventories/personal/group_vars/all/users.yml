@@ -1,0 +1,48 @@
+---
+ansible_groups:
+  - name: k3s
+    gid: 8833
+    state: present
+    system: false
+
+ansible_users:
+  - name: ubuntu
+    authkey_exclusive: true
+    authkey_state: present
+    create_home: false
+    expires: -1
+    group: k3s
+    groups:
+      - ubuntu
+      - adm
+      - dialout
+      - cdrom
+      - floppy
+      - sudo
+      - audio
+      - dip
+      - video
+      - plugdev
+      - netdev
+      - lxd
+    password: !
+    remove: false
+    shell: /bin/bash
+    state: present
+    system: false
+  - name: bwright
+    authkey_comment: bwright
+    authkey_exclusive: true
+    authkey_manage_dir: true
+    authkey_state: present
+    comment: "Bradley Wright"
+    create_home: true
+    expires: -1
+    group: k3s
+    groups:
+      - sudo
+    password: !
+    remove: false
+    shell: /bin/bash
+    state: present
+    system: false

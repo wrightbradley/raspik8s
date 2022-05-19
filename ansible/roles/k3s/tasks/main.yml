@@ -1,0 +1,24 @@
+---
+- name: Create local storage directory
+  ansible.builtin.file:
+    path: /k8s/storage
+    state: directory
+    owner: root
+    group: root
+    mode: "0755"
+
+- name: Create /etc/rancher/k3s directory
+  ansible.builtin.file:
+    path: /etc/rancher/k3s
+    state: directory
+    owner: root
+    group: root
+    mode: "0755"
+
+- name: Install K3S Controlplane
+  include_tasks: controlplane.yml
+  when: "'controlplane' in group_names"
+
+- name: Install K3S Nodes
+  include_tasks: node.yml
+  when: "'node' in group_names"

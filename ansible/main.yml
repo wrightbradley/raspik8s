@@ -1,0 +1,30 @@
+---
+- hosts: k3s_cluster
+  serial: "50%"
+  gather_facts: true
+  become: true
+  roles:
+    - role: prereq
+      tags: ["prereq"]
+    - role: system
+      tags: ["system"]
+    - role: raspberrypi
+      tags: ["raspberrypi"]
+    - role: download
+      tags: ["download"]
+
+- hosts: controlplane
+  serial: "50%"
+  strategy: free
+  become: true
+  roles:
+    - role: k3s
+      tags: ["controlplane"]
+
+- hosts: node
+  serial: "50%"
+  strategy: free
+  become: true
+  roles:
+    - role: k3s
+      tags: ["node"]

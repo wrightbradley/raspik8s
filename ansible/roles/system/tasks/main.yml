@@ -1,0 +1,14 @@
+---
+- import_tasks: packages.yml
+  tags: packages
+
+- import_tasks: network.yml
+  tags: network
+
+- name: Copy over /etc/motd file
+  ansible.builtin.copy:
+    src: files/etc/motd
+    dest: /etc/motd
+    owner: root
+    group: root
+    mode: 0644

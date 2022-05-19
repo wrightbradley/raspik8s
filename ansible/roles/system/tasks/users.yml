@@ -1,0 +1,61 @@
+---
+- name: Configure Groups
+  ansible.builtin.group:
+    name: "{{ item.name }}"
+    gid: "{{ item.gid }}"
+    state: "{{ item.state }}"
+    system: "{{ item.system }}"
+  when: ansible_groups is defined
+  loop: "{{ ansible_groups }}"
+  loop_control:
+    label: "{{ item.name }}"
+  tags:
+    - create-users
+    - create-groups
+
+- name: Configure Users
+  ansible.builtin.user:
+    name: "{{ item.name }}"
+    comment: "{{ item.comment | default(omit) }}"
+    password: "{{ item.password | default(omit) }}"
+    group: "{{ item.group | default(omit) }}"
+    groups: "{{ item.groups | default(omit) }}"
+    home: "{{ item.home | default(omit) }}"
+    create_home: "{{ item.create_home | default(omit) }}"
+    remove: "{{ item.remove | default(omit) }}"
+    expires: "{{ item.expires | default(omit) }}"
+    shell: "{{ item.shell | default(omit) }}"
+    state: "{{ item.state | default(omit) }}"
+    system: "{{ item.system | default(omit) }}"
+    uid: "{{ item.uid | default(omit) }}"
+  when: ansible_users is defined
+  loop: "{{ ansible_users }}"
+  loop_control:
+    label: "{{ item.name }}"
+  tags:
+    - create-users
+
+- name: Add SSH Keys for Users
+  ansible.posix.authorized_key:
+    user: "{{ item.name }}"
+    comment: "{{ item.authkey_comment | default(omit) }}"
+    exclusive: "{{ item.authkey_exclusive | default(omit) }}"
+    key: "{{ item.authkey_manage_dir | default(omit) }}"
+    manage_dir: "{{ item.authkey_manage_dir | default(omit) }}"
+    state: "{{ item.authkey_state | default(omit) }}"
+  when: ansible_users is defined and item.state != "absent"
+  loop: "{{ ansible_users }}"
+  loop_control:
+    label: "{{ item.name }}"
+  ignore_errors: "{{ ansible_check_mode }}"
+  tags:
+    - create-users
+    - update-sshkeys
+
+- name: Set NOPASSWD for Sudoers in K3S Group
+  ansible.builtin.lineinfile:
+    path: /etc/sudoers
+    state: present
+    regexp: "^%wheel"
+    line: "%k3s ALL=(ALL) NOPASSWD: ALL"
+    validate: "visudo -cf %s"

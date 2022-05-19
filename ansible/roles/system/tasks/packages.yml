@@ -1,0 +1,16 @@
+---
+- name: python-apt dependency
+  ansible.builtin.command: apt-get install -y python3-apt
+  args:
+    warn: false
+
+- name: apt-get update
+  ansible.builtin.apt:
+    update_cache: true
+    autoclean: true
+    autoremove: true
+    cache_valid_time: 86400
+
+- name: apt-get upgrade
+  ansible.builtin.apt:
+    upgrade: full
