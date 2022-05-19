@@ -1,6 +1,6 @@
 site/
 mkdocs/
-.venv
+venv
 monitoring/
 ansible/.cache
 ansible/.cp

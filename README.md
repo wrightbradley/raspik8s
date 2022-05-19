@@ -1,7 +1,7 @@
 # raspik8s
 
-![](https://github.com/the-wright-engineer/raspik8s/workflows/CI/badge.svg)
+![CI Badge](https://github.com/wrightbradley/raspik8s/workflows/CI/badge.svg)
 
-All encompassing repository for running Kubernetes on Raspberry Pis with a collection of applications.
+All encompassing repository for running a Kubernetes cluster on Raspberry Pis with a collection of applications.
 
-For documentation go here: https://the-wright-engineer.github.io/raspik8s/
+For documentation go to [Raspik8s](https://wrightbradley.github.io/raspik8s/)
